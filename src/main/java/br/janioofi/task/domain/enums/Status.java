@@ -5,11 +5,11 @@ public enum Status {
     CONCLUIDO(1, "CONCLUIDO"),
     CANCELADO(2, "CANCELADO");
 
-    private final Integer code;
-    private final String description;
+    private final Integer codigo;
+    private final String descricao;
 
-    Status(Integer code, String description) {
-        this.code = code;
-        this.description = description;
+    Status(Integer codigo, String descricao) {
+        this.codigo = codigo;
+        this.descricao = descricao;
     }
 }
