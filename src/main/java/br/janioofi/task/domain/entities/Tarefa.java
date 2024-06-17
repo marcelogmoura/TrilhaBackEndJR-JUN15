@@ -23,6 +23,8 @@ public class Tarefa {
     private Long idTarefa;
 
     private String descricao;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Column(name = "data_criacao")
