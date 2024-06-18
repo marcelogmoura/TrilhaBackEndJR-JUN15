@@ -11,6 +11,9 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
-
+api:
+  security:
+    token:
+      secret: jui2h97872ny627db72bd63nj8
 server:
   port: 8080
