@@ -17,3 +17,16 @@ api:
       secret: jui2h97872ny627db72bd63nj8
 server:
   port: 8080
+
+logging:
+  file:
+    name: logs/app.log
+    path: logs
+    max-size: 10MB
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    br.janioofi.task: DEBUG
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
