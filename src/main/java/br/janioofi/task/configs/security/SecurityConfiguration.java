@@ -58,7 +58,7 @@ public class SecurityConfiguration implements WebMvcConfigurer {
         corsConfiguration.setMaxAge(3600L); // Cache por 1 hora
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/api/**", corsConfiguration); // Aplicando a configuração para todas as URLs '/api/**'
+        source.registerCorsConfiguration("/**", corsConfiguration);
         return source;
     }
 
