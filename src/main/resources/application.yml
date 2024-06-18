@@ -24,7 +24,7 @@ logging:
     path: logs
     max-size: 10MB
   level:
-    root: INFO
+    root: debug
     org.springframework.web: DEBUG
     br.janioofi.task: DEBUG
 
