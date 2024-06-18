@@ -9,6 +9,6 @@ public record TarefaResponseDto(
         Long idTarefa,
         String descricao,
         Status status,
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime data_criacao,
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime data_atualizacao) {
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime dataCriacao,
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime dataAtualizacao) {
 }
