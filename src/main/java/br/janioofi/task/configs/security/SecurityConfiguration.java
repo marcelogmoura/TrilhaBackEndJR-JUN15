@@ -18,8 +18,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -52,13 +51,11 @@ public class SecurityConfiguration implements WebMvcConfigurer {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Collections.singletonList("*")); // Permitindo todas as origens
-        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        corsConfiguration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization")); // Permitindo 'Content-Type' e 'Authorization'
-        corsConfiguration.setMaxAge(3600L); // Cache por 1 hora
-
+        corsConfiguration.setAllowedOrigins(List.of("https://trilhabackendjr-jun15-production.up.railway.app/"));
+        corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        corsConfiguration.setAllowedHeaders(List.of("Content-Type", "Authorization", "Access-Control-Allow-Origin")); // Permitindo 'Content-Type' e 'Authorization'
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfiguration);
+        source.registerCorsConfiguration("/api/**", corsConfiguration);
         return source;
     }
 
