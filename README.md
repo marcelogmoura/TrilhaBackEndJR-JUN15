@@ -13,6 +13,11 @@ Este projeto tem como objetivo desenvolver uma API RESTful para gerenciamento de
 - Docker
 - Java 17
 
+### Deploy
+```bash
+https://janioofi-task.up.railway.app/
+```
+
 ### Documentação
 ```bash
 https://janioofi-task.up.railway.app/swagger-ui/index.html
