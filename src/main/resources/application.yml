@@ -27,6 +27,3 @@ logging:
     root: debug
     org.springframework.web: DEBUG
     br.janioofi.task: DEBUG
-
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
