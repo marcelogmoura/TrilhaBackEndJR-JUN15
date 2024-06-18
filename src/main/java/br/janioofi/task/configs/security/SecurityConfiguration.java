@@ -49,15 +49,13 @@ public class SecurityConfiguration implements WebMvcConfigurer {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(List.of("*"));
+        corsConfiguration.setAllowedOrigins(List.of("https://janioofi-task.up.railway.app")); // Especifique a origem permitida
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(List.of("Content-Type", "Authorization"));
         corsConfiguration.setAllowCredentials(true);
 
-        System.out.println("CORS Configuration: " + corsConfiguration);
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfiguration); // Cobrir todas as rotas
+        source.registerCorsConfiguration("/**", corsConfiguration);
         return source;
     }
 
