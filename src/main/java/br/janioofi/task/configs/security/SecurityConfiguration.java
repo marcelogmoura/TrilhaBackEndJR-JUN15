@@ -53,10 +53,14 @@ public class SecurityConfiguration implements WebMvcConfigurer {
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(List.of("Content-Type", "Authorization"));
         corsConfiguration.setAllowCredentials(true);
+
+        System.out.println("CORS Configuration: " + corsConfiguration);
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration); // Cobrir todas as rotas
         return source;
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
