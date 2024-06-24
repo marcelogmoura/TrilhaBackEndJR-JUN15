@@ -15,7 +15,6 @@ public class SwaggerConfig {
 	@Bean
 	public OpenAPI customOpenApi() {
 		OpenAPI openAPI = new OpenAPI().components(new Components())
-						.addServersItem(new Server().url("trilhabackendjr-jun15-production.up.railway.app"))
 						.info(new Info()
 						.title("API Tarefas")
 						.description("API Spring Boot para controle de tarefas.")
