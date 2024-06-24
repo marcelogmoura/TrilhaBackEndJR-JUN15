@@ -10,10 +10,10 @@ public class AutenticarUsuarioRequestDto {
 	
 	@Email(message = "Informe um EMAIL válido.")
 	@NotEmpty(message = "EMAIL não pode ser vazio.")
-	private String email;
+	private String emailAcesso;
 	
 	@Size( message = "Informe ao menos 8 caracteres.")
 	@NotEmpty(message = "SENHA não pode ser vazio.")
-	private String senha;
+	private String senhaAcesso;
 
 }

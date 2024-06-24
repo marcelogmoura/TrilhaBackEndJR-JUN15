@@ -56,6 +56,8 @@ public class UsuarioDomainServiceImpl implements UsuarioDomainService{
 	@Override
 	public AutenticarUsuarioResponseDto autenticarUsuario(AutenticarUsuarioRequestDto dto) {
 		
+		Usuario usuario = usuarioRepository.findByEmailAndSenha(dto.getEmailAcesso(), cryptoSHA256Component.encrypt(dto.getSenhaAcesso()));
+		
 		return null;
 	}
 
