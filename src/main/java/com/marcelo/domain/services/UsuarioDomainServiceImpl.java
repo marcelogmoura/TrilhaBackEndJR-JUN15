@@ -14,6 +14,7 @@ import com.marcelo.domain.entities.Usuario;
 import com.marcelo.domain.exceptions.EmailJaCadastradoException;
 import com.marcelo.domain.interfaces.UsuarioDomainService;
 import com.marcelo.infrastructure.components.CryptoSHA256Component;
+import com.marcelo.infrastructure.components.TokenComponent;
 import com.marcelo.infrastructure.repositories.UsuarioRepository;
 
 @Service
@@ -24,6 +25,9 @@ public class UsuarioDomainServiceImpl implements UsuarioDomainService{
 	
 	@Autowired
 	private CryptoSHA256Component cryptoSHA256Component;
+	
+	@Autowired
+	private TokenComponent tokenComponent;
 
 	@Override
 	public CriarUsuarioResponseDto criarUsuario(CriarUsuarioRequestDto dto) {
