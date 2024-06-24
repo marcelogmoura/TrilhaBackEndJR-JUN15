@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.marcelo.domain.EmailJaCadastradoException;
+import com.marcelo.domain.exceptions.EmailJaCadastradoException;
 
 @ControllerAdvice
 public class EmailJaCadastradoExceptionHandler {

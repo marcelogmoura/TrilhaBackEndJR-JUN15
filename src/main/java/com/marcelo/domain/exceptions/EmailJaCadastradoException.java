@@ -1,4 +1,4 @@
-package com.marcelo.domain;
+package com.marcelo.domain.exceptions;
 
 public class EmailJaCadastradoException extends RuntimeException{
 

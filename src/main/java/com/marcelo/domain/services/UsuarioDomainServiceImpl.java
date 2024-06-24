@@ -6,10 +6,12 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.marcelo.domain.EmailJaCadastradoException;
+import com.marcelo.domain.dtos.AutenticarUsuarioRequestDto;
+import com.marcelo.domain.dtos.AutenticarUsuarioResponseDto;
 import com.marcelo.domain.dtos.CriarUsuarioRequestDto;
 import com.marcelo.domain.dtos.CriarUsuarioResponseDto;
 import com.marcelo.domain.entities.Usuario;
+import com.marcelo.domain.exceptions.EmailJaCadastradoException;
 import com.marcelo.domain.interfaces.UsuarioDomainService;
 import com.marcelo.infrastructure.components.CryptoSHA256Component;
 import com.marcelo.infrastructure.repositories.UsuarioRepository;
@@ -45,6 +47,12 @@ public class UsuarioDomainServiceImpl implements UsuarioDomainService{
 		
 		
 		return response;
+	}
+
+	@Override
+	public AutenticarUsuarioResponseDto autenticarUsuario(AutenticarUsuarioRequestDto dto) {
+		
+		return null;
 	}
 
 }
