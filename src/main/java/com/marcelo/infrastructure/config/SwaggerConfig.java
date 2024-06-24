@@ -7,6 +7,7 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.servers.Server;
 
 @Configuration
 public class SwaggerConfig {
@@ -14,7 +15,7 @@ public class SwaggerConfig {
 	@Bean
 	public OpenAPI customOpenApi() {
 		OpenAPI openAPI = new OpenAPI().components(new Components())
-				
+						.addServersItem(new Server().url("trilhabackendjr-jun15-production.up.railway.app"))
 						.info(new Info()
 						.title("API Tarefas")
 						.description("API Spring Boot para controle de tarefas.")

@@ -14,6 +14,7 @@ public class TokenComponent {
 
 	@Value("${jwt.secret}")
 	private String jwtSecret;
+	
 	@Value("${jwt.expiration}")
 	private String jwtExpiration;
 
