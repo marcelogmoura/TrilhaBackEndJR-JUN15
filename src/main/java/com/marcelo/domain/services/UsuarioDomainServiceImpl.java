@@ -11,6 +11,7 @@ import com.marcelo.domain.dtos.AutenticarUsuarioResponseDto;
 import com.marcelo.domain.dtos.CriarUsuarioRequestDto;
 import com.marcelo.domain.dtos.CriarUsuarioResponseDto;
 import com.marcelo.domain.entities.Usuario;
+import com.marcelo.domain.exceptions.AcessoNegadoException;
 import com.marcelo.domain.exceptions.EmailJaCadastradoException;
 import com.marcelo.domain.interfaces.UsuarioDomainService;
 import com.marcelo.infrastructure.components.CryptoSHA256Component;
@@ -58,7 +59,17 @@ public class UsuarioDomainServiceImpl implements UsuarioDomainService{
 		
 		Usuario usuario = usuarioRepository.findByEmailAndSenha(dto.getEmailAcesso(), cryptoSHA256Component.encrypt(dto.getSenhaAcesso()));
 		
-		return null;
+		if(usuario == null)
+			throw new AcessoNegadoException();
+		
+		AutenticarUsuarioResponseDto response = new AutenticarUsuarioResponseDto();
+		
+		response.setIdUsuario(usuario.getIdUsuario());
+		response.setNome(usuario.getNome());
+		response.setEmail(usuario.getEmail());
+		response.setAccessToken(tokenComponent.generateToken(usuario.getIdUsuario()));
+		
+		return response;
 	}
 
 }
