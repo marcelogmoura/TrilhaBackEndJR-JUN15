@@ -1,5 +1,7 @@
 package com.marcelo.domain.interfaces;
 
+import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 import com.marcelo.domain.dtos.ConsultarTarefaResponseDto;
@@ -11,5 +13,13 @@ public interface TarefaDomainService {
 	ConsultarTarefaResponseDto criarTarefa(CriarTarefaRequestDto dto, UUID idUsuario);
 	
 	ConsultarTarefaResponseDto editarTarefa(EditarTarefaRequestDto dto, UUID idUsuario);
+	
+	ConsultarTarefaResponseDto excluirTarefa(UUID idTarefa, UUID idUsuario);
+	
+	ConsultarTarefaResponseDto obter(UUID idTarefa, UUID idUsuario);
+	
+	List<ConsultarTarefaResponseDto> consultarTarefas(Instant dataMin, Instant dataMax, UUID idUsuario);
+	
+	
 
 }
