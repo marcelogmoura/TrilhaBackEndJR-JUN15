@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.marcelo.domain.dtos.AutenticarUsuarioRequestDto;
+import com.marcelo.domain.dtos.AutenticarUsuarioResponseDto;
 import com.marcelo.domain.dtos.CriarUsuarioRequestDto;
 import com.marcelo.domain.dtos.CriarUsuarioResponseDto;
 import com.marcelo.domain.interfaces.UsuarioDomainService;
@@ -25,8 +27,15 @@ public class UsuarioController {
 		CriarUsuarioResponseDto response = usuarioDomainService.criarUsuario(dto);
 		
 		return ResponseEntity.status(201).body(response);
+	}
+	
+	@PostMapping("autenticar")
+	public ResponseEntity<AutenticarUsuarioResponseDto> autenticarUsuario(@RequestBody @Valid AutenticarUsuarioRequestDto dto ) {
+		AutenticarUsuarioResponseDto response = usuarioDomainService.autenticarUsuario(dto);
 		
-		
+		return ResponseEntity.status(200).body(response); 		
 	}
 
 }
+
+
