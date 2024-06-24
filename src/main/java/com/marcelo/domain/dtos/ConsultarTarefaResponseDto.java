@@ -1,5 +1,7 @@
 package com.marcelo.domain.dtos;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import lombok.Data;
@@ -11,10 +13,12 @@ public class ConsultarTarefaResponseDto {
 	
 	private String nome;
 	
-	private String data;
+	private String  data;
 	
 	private String hora;
 	
 	private Integer prioridade;
+	
+	
 
 }

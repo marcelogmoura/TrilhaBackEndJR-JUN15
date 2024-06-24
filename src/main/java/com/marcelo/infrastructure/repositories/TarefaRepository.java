@@ -18,5 +18,6 @@ public interface TarefaRepository extends JpaRepository<Tarefa, UUID>{
     @Query("SELECT t FROM tb_tarefa t WHERE t.data >= :dataMin AND t.data <= :dataMax AND t.usuario.id = :pessoaId")
     List<Tarefa> findByDatas(@Param("dataMin") Instant dataMin, @Param("dataMax") Instant dataMax, @Param("pessoaId") UUID pessoaId);
 
-
 }
+
+
