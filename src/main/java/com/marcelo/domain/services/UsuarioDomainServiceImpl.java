@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.marcelo.domain.EmailJaCadastradoException;
 import com.marcelo.domain.dtos.CriarUsuarioRequestDto;
 import com.marcelo.domain.dtos.CriarUsuarioResponseDto;
 import com.marcelo.domain.entities.Usuario;
@@ -26,7 +27,7 @@ public class UsuarioDomainServiceImpl implements UsuarioDomainService{
 	public CriarUsuarioResponseDto criarUsuario(CriarUsuarioRequestDto dto) {
 		
 		if(usuarioRepository.findByEmail(dto.getEmail()) != null)
-			throw new IllegalArgumentException("");
+			throw new EmailJaCadastradoException();
 		
 		Usuario usuario = new Usuario();
 		usuario.setIdUsuario(UUID.randomUUID());
