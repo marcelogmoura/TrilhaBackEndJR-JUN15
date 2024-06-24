@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class CriarUsuarioResponseDto {
 	
-	private UUID id;
+	private UUID idUsuario;
 	
 	private String nome;
 	
