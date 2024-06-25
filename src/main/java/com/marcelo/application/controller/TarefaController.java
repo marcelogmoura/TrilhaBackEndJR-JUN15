@@ -1,44 +1,54 @@
 package com.marcelo.application.controller;
 
+import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.marcelo.domain.dtos.ConsultarTarefaResponseDto;
+import com.marcelo.domain.dtos.CriarTarefaRequestDto;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/api/tarefas")
 public class TarefaController {
 	
 	@PostMapping("criar")
-	public void criarTarefa() {
+	public ResponseEntity<ConsultarTarefaResponseDto> criarTarefa(@RequestBody @Valid CriarTarefaRequestDto dto) {
+		return null;
 		
 	}
 	
-	@PutMapping("editar")
-	public void editarTarefa() {
-		
+	@PutMapping("alterar")
+	public ResponseEntity<ConsultarTarefaResponseDto>  alterarTarefa(@RequestBody @Valid CriarTarefaRequestDto dto) {
+		return null;
 	}
 	
 	@DeleteMapping("excluir/{id}")
-	public void excluirTarefa(@PathVariable("id") UUID idTarefa) {
-		
+	public ResponseEntity<ConsultarTarefaResponseDto> excluirTarefa(@PathVariable("id") UUID idTarefa) {
+		return null;
 	}
 	
 	@GetMapping("consultar/{dataMin}/{dataMax}")
-	public void consultarTarefas(
+	public ResponseEntity<List<ConsultarTarefaResponseDto>> consultarTarefas(
 			@PathVariable("dataMin") String dataMin,
-			@PathVariable("dataMax") String dataMax) {
+			@PathVariable("dataMax") String dataMax) {	
 		
+		return null;
 	}
 	
 	@GetMapping("obter/{id}")
-	public void obterTarefa(@PathVariable("id") UUID idTarefa) {
-		
+	public ResponseEntity<ConsultarTarefaResponseDto> obterTarefa(@PathVariable("id") UUID idTarefa) {
+		return null;
 	}
 	
 }
