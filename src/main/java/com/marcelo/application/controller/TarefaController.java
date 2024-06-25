@@ -18,6 +18,7 @@ import com.marcelo.domain.dtos.ConsultarTarefaResponseDto;
 import com.marcelo.domain.dtos.CriarTarefaRequestDto;
 import com.marcelo.domain.interfaces.TarefaDomainService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @RestController
@@ -30,32 +31,39 @@ public class TarefaController {
 	
 	
 	@PostMapping("criar")
-	public ResponseEntity<ConsultarTarefaResponseDto> criarTarefa(@RequestBody @Valid CriarTarefaRequestDto dto) {
+	public ResponseEntity<ConsultarTarefaResponseDto> criarTarefa
+		(@RequestBody @Valid CriarTarefaRequestDto dto , HttpServletRequest request) {
 		return null;
 		
 	}
 	
 	@PutMapping("alterar")
-	public ResponseEntity<ConsultarTarefaResponseDto>  alterarTarefa(@RequestBody @Valid CriarTarefaRequestDto dto) {
+	public ResponseEntity<ConsultarTarefaResponseDto>  alterarTarefa
+		(@RequestBody @Valid CriarTarefaRequestDto dto, HttpServletRequest request) {
 		return null;
 	}
 	
 	@DeleteMapping("excluir/{id}")
-	public ResponseEntity<ConsultarTarefaResponseDto> excluirTarefa(@PathVariable("id") UUID idTarefa) {
+	public ResponseEntity<ConsultarTarefaResponseDto> excluirTarefa
+		(@PathVariable("id") UUID idTarefa, HttpServletRequest request) {
 		return null;
 	}
 	
 	@GetMapping("consultar/{dataMin}/{dataMax}")
 	public ResponseEntity<List<ConsultarTarefaResponseDto>> consultarTarefas(
 			@PathVariable("dataMin") String dataMin,
-			@PathVariable("dataMax") String dataMax) {	
+			@PathVariable("dataMax") String dataMax, 
+			HttpServletRequest request) {	
 		
 		return null;
 	}
 	
 	@GetMapping("obter/{id}")
-	public ResponseEntity<ConsultarTarefaResponseDto> obterTarefa(@PathVariable("id") UUID idTarefa) {
+	public ResponseEntity<ConsultarTarefaResponseDto> obterTarefa
+		(@PathVariable("id") UUID idTarefa, HttpServletRequest request) {
 		return null;
 	}
 	
 }
+
+
