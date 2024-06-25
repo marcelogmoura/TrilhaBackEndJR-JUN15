@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.marcelo.domain.dtos.ConsultarTarefaResponseDto;
 import com.marcelo.domain.dtos.CriarTarefaRequestDto;
 import com.marcelo.domain.interfaces.TarefaDomainService;
+import com.marcelo.infrastructure.components.TokenComponent;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -29,11 +30,18 @@ public class TarefaController {
 	@Autowired
 	private TarefaDomainService tarefaDomainService;
 	
+	@Autowired
+	private TokenComponent tokenComponent;
+	
 	
 	@PostMapping("criar")
 	public ResponseEntity<ConsultarTarefaResponseDto> criarTarefa
-		(@RequestBody @Valid CriarTarefaRequestDto dto , HttpServletRequest request) {
-		return null;
+		(@RequestBody @Valid CriarTarefaRequestDto dto , HttpServletRequest request) {	
+		
+		UUID idUsuario = getIdUsuario(request);
+		
+		ConsultarTarefaResponseDto response = tarefaDomainService.criarTarefa(dto, idUsuario);		 
+		return ResponseEntity.status(201).body(response);
 		
 	}
 	
@@ -62,6 +70,11 @@ public class TarefaController {
 	public ResponseEntity<ConsultarTarefaResponseDto> obterTarefa
 		(@PathVariable("id") UUID idTarefa, HttpServletRequest request) {
 		return null;
+	}
+	
+	private UUID getIdUsuario(HttpServletRequest request) {
+		String token = request.getHeader("Authorization").replace("Bearer", "").trim();
+		return tokenComponent.getIdFromToken(token);
 	}
 	
 }
