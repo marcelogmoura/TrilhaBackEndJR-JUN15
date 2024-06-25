@@ -1,13 +1,13 @@
 package com.marcelo.domain.services;
 
 import java.time.Instant;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.marcelo.domain.dtos.ConsultarTarefaResponseDto;
 import com.marcelo.domain.dtos.CriarTarefaRequestDto;
@@ -18,6 +18,7 @@ import com.marcelo.domain.interfaces.TarefaDomainService;
 import com.marcelo.infrastructure.repositories.TarefaRepository;
 import com.marcelo.infrastructure.repositories.UsuarioRepository;
 
+@Service
 public class TarefaDomainServiceImpl implements TarefaDomainService{
 	
 	@Autowired
@@ -83,7 +84,8 @@ public class TarefaDomainServiceImpl implements TarefaDomainService{
 
 		List<Tarefa> tarefas = tarefaRepository.findByDatas(dataMin, dataMax, idUsuario);
 		
-		return tarefas.stream()
+		return tarefas
+				.stream()
 				.map(tarefa -> modelMapper
 				.map(tarefa, ConsultarTarefaResponseDto.class))
 				.collect(Collectors.toList());

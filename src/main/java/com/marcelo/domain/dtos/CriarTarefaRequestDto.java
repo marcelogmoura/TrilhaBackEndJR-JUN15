@@ -1,6 +1,7 @@
 package com.marcelo.domain.dtos;
 
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -20,7 +21,7 @@ public class CriarTarefaRequestDto {
 	@NotEmpty(message = "Informe a HORA da tarefa.")
 	private String hora;
 	
-	@NotEmpty(message = "PRIORIDADE não pode ser vazia.")
+	@NotNull(message = "PRIORIDADE não pode ser vazia.")
 	private Integer prioridade;
 
 }
