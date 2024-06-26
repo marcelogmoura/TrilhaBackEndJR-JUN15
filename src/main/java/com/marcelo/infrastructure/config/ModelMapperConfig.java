@@ -13,8 +13,11 @@ import org.springframework.context.annotation.Configuration;
 public class ModelMapperConfig {
 	@Bean
 	public ModelMapper getModelMapper() {
+		
 		ModelMapper modelMapper = new ModelMapper();
+		
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		
 		// Configurando o mapeamento de String para LocalDate
 		modelMapper.createTypeMap(String.class, LocalDate.class).setConverter(context -> {
 			String dateString = context.getSource();
@@ -24,6 +27,7 @@ public class ModelMapperConfig {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			return LocalDate.parse(dateString, formatter);
 		});
+		
 		// Configurando o mapeamento de String para LocalTime
 		modelMapper.createTypeMap(String.class, LocalTime.class).setConverter(context -> {
 			String timeString = context.getSource();
