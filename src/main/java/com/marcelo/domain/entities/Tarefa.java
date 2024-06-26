@@ -1,7 +1,7 @@
 package com.marcelo.domain.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
@@ -21,7 +21,7 @@ public class Tarefa {
 	
 	private LocalDate data;
 	
-	private LocalDateTime hora;
+	private LocalTime hora;
 	
 	private Integer prioridade;
 
