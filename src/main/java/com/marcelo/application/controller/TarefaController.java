@@ -1,5 +1,8 @@
 package com.marcelo.application.controller;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.marcelo.domain.dtos.ConsultarTarefaResponseDto;
 import com.marcelo.domain.dtos.CriarTarefaRequestDto;
+import com.marcelo.domain.dtos.EditarTarefaRequestDto;
 import com.marcelo.domain.interfaces.TarefaDomainService;
 import com.marcelo.infrastructure.components.TokenComponent;
 
@@ -40,21 +44,34 @@ public class TarefaController {
 		
 		UUID idUsuario = getIdUsuario(request);
 		
-		ConsultarTarefaResponseDto response = tarefaDomainService.criarTarefa(dto, idUsuario);		 
+		ConsultarTarefaResponseDto response = tarefaDomainService.criarTarefa(dto, idUsuario);	
+		
 		return ResponseEntity.status(201).body(response);
 		
 	}
 	
 	@PutMapping("alterar")
 	public ResponseEntity<ConsultarTarefaResponseDto>  alterarTarefa
-		(@RequestBody @Valid CriarTarefaRequestDto dto, HttpServletRequest request) {
-		return null;
+		(@RequestBody @Valid EditarTarefaRequestDto dto, HttpServletRequest request) {
+
+		UUID idUsuario = getIdUsuario(request);
+		
+		ConsultarTarefaResponseDto response = tarefaDomainService.editarTarefa(dto, idUsuario);
+
+		
+		return ResponseEntity.status(200).body(response);
 	}
 	
 	@DeleteMapping("excluir/{id}")
 	public ResponseEntity<ConsultarTarefaResponseDto> excluirTarefa
 		(@PathVariable("id") UUID idTarefa, HttpServletRequest request) {
-		return null;
+		
+		UUID idUsuario = getIdUsuario(request);
+		
+		ConsultarTarefaResponseDto response = tarefaDomainService.excluirTarefa(idTarefa, idUsuario);
+		
+		return ResponseEntity.status(200).body(response);
+		
 	}
 	
 	@GetMapping("consultar/{dataMin}/{dataMax}")
@@ -63,13 +80,26 @@ public class TarefaController {
 			@PathVariable("dataMax") String dataMax, 
 			HttpServletRequest request) {	
 		
-		return null;
+		Instant dtMin = LocalDate.parse(dataMin).atStartOfDay(ZoneId.systemDefault()).toInstant();
+		Instant dtMax = LocalDate.parse(dataMax).atStartOfDay(ZoneId.systemDefault()).toInstant();
+		
+		UUID idUsuario = getIdUsuario(request);
+		
+		List<ConsultarTarefaResponseDto> response = tarefaDomainService.consultarTarefas(dtMin, dtMax, idUsuario);
+		
+		return ResponseEntity.status(200).body(response);
+		
 	}
 	
 	@GetMapping("obter/{id}")
 	public ResponseEntity<ConsultarTarefaResponseDto> obterTarefa
 		(@PathVariable("id") UUID idTarefa, HttpServletRequest request) {
-		return null;
+		
+		UUID idUsuario = getIdUsuario(request);
+		
+		ConsultarTarefaResponseDto response = tarefaDomainService.obter(idTarefa , idUsuario);
+		
+		return ResponseEntity.status(200).body(response);
 	}
 	
 	private UUID getIdUsuario(HttpServletRequest request) {

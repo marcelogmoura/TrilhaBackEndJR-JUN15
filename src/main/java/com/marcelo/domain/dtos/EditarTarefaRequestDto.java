@@ -26,7 +26,7 @@ public class EditarTarefaRequestDto {
 	@NotEmpty(message = "Informe a HORA da tarefa.")
 	private String hora;
 	
-	@NotEmpty(message = "PRIORIDADE não pode ser vazia.")
+	@NotNull(message = "PRIORIDADE não pode ser vazia.")
 	private Integer prioridade;
 
 }
