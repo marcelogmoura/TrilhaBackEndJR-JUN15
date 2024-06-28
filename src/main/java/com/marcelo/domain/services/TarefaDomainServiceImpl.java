@@ -1,6 +1,7 @@
 package com.marcelo.domain.services;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -14,6 +15,7 @@ import com.marcelo.domain.dtos.CriarTarefaRequestDto;
 import com.marcelo.domain.dtos.EditarTarefaRequestDto;
 import com.marcelo.domain.entities.Tarefa;
 import com.marcelo.domain.entities.Usuario;
+import com.marcelo.domain.exceptions.EmailJaCadastradoException;
 import com.marcelo.domain.interfaces.TarefaDomainService;
 import com.marcelo.infrastructure.repositories.TarefaRepository;
 import com.marcelo.infrastructure.repositories.UsuarioRepository;
@@ -71,9 +73,14 @@ public class TarefaDomainServiceImpl implements TarefaDomainService{
 	
 
 	@Override
-	public ConsultarTarefaResponseDto obter(UUID idTarefa, UUID idUsuario) {
+	public ConsultarTarefaResponseDto obterTarefa(UUID idTarefa, UUID idUsuario) {
 		
-		Tarefa tarefa  = tarefaRepository.findByIds(idTarefa, idUsuario);
+
+		Tarefa tarefa = tarefaRepository.findByIds(idTarefa, idUsuario);
+		
+		if(tarefa == null) {
+			throw new  EmailJaCadastradoException(); // testar tarefa null
+		}
 		
 		return modelMapper.map(tarefa, ConsultarTarefaResponseDto.class);	
 	}
@@ -93,3 +100,6 @@ public class TarefaDomainServiceImpl implements TarefaDomainService{
 	}
 
 }
+
+
+

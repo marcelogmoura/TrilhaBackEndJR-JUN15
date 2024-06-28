@@ -81,7 +81,7 @@ public class TarefaController {
 			HttpServletRequest request) {	
 		
 		Instant dtMin = LocalDate.parse(dataMin).atStartOfDay(ZoneId.systemDefault()).toInstant();
-		Instant dtMax = LocalDate.parse(dataMax).atStartOfDay(ZoneId.systemDefault()).toInstant();
+	    Instant dtMax = LocalDate.parse(dataMax).atStartOfDay(ZoneId.systemDefault()).toInstant();
 		
 		UUID idUsuario = getIdUsuario(request);
 		
@@ -97,16 +97,19 @@ public class TarefaController {
 		
 		UUID idUsuario = getIdUsuario(request);
 		
-		ConsultarTarefaResponseDto response = tarefaDomainService.obter(idTarefa , idUsuario);
+		ConsultarTarefaResponseDto response = tarefaDomainService.obterTarefa(idTarefa , idUsuario);
 		
 		return ResponseEntity.status(200).body(response);
 	}
+	
 	
 	private UUID getIdUsuario(HttpServletRequest request) {
 		String token = request.getHeader("Authorization").replace("Bearer", "").trim();
 		return tokenComponent.getIdFromToken(token);
 	}
-	
+
 }
+
+
 
 

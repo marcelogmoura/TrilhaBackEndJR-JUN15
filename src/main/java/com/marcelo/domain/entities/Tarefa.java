@@ -14,7 +14,6 @@ import lombok.Data;
 public class Tarefa {
 	
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private UUID idTarefa;
 	
 	private String nome;

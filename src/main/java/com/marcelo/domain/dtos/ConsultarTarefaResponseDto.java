@@ -9,7 +9,7 @@ public class ConsultarTarefaResponseDto {
 	
 	private UUID idTarefa;
 	private String nome;
-	private String  data;
+	private String data;
 	private String hora;
 	private Integer prioridade;
 	

@@ -16,10 +16,8 @@ public interface TarefaDomainService {
 	
 	ConsultarTarefaResponseDto excluirTarefa(UUID idTarefa, UUID idUsuario);
 	
-	ConsultarTarefaResponseDto obter(UUID idTarefa, UUID idUsuario);
+	ConsultarTarefaResponseDto obterTarefa(UUID idTarefa, UUID idUsuario);
 	
 	List<ConsultarTarefaResponseDto> consultarTarefas(Instant dataMin, Instant dataMax, UUID idUsuario);
-	
-	
 
 }
