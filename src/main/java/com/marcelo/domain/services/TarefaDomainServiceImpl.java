@@ -1,6 +1,8 @@
 package com.marcelo.domain.services;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -87,8 +89,12 @@ public class TarefaDomainServiceImpl implements TarefaDomainService{
 
 	@Override
 	public List<ConsultarTarefaResponseDto> consultarTarefas(Instant dataMin, Instant dataMax, UUID idUsuario) {
+		
+		// testar
+		LocalDate localDateMin = dataMin.atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate localDateMax = dataMax.atZone(ZoneId.systemDefault()).toLocalDate();
 
-		List<Tarefa> tarefas = tarefaRepository.findByDatas(dataMin, dataMax, idUsuario);
+		List<Tarefa> tarefas = tarefaRepository.findByDatas(localDateMin, localDateMax, idUsuario);
 		
 		return tarefas
 				.stream()
