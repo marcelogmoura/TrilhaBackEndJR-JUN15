@@ -13,38 +13,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class Swagger {
-
-    @Bean
-    public GroupedOpenApi publicApi(){
-        return GroupedOpenApi.builder()
-                .group("task")
-                .displayName("Tarefa API")
-                .pathsToMatch("/**")
-                .build();
-    }
-
-    private SecurityScheme createAPIKeyScheme() {
-        return new SecurityScheme().type(SecurityScheme.Type.HTTP)
-                .bearerFormat("JWT")
-                .scheme("bearer");
-    }
-
-    @Bean
-    public OpenAPI openAPI() {
-        return new OpenAPI().addSecurityItem(new SecurityRequirement().
-                        addList("Bearer Authentication"))
-                .components(new Components().addSecuritySchemes
-                        ("Bearer Authentication", createAPIKeyScheme()))
-                .addServersItem(new Server().url("https://janioofi-task.up.railway.app"))
-                .info(new Info()
-                        .title("Tarefa - API")
-                        .description("API Rest")
-                        .contact(new Contact()
-                                .name("@janioofi")
-                                .email("janioofi@gmail.com"))
-                        .license(new License()
-                                .name("Apache 2.0")
-                                .url("https://github.com/janioofi")));
+@EnableWebMvc
+public class CorsConfig implements WebMvcConfigurer {
+	
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**")
+				.allowedOriginPatterns("*")  //.allowedOrigins("*")
+				.allowedMethods("POST", "PUT", "DELETE", "GET")
+				.allowedHeaders("*")
+				.allowCredentials(true);
+	}
+	
+	@Bean
+    public OpenAPI customOpenAPI() {
+        return new OpenAPI()
+        		.addServersItem(new Server().url("https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html"))
+                .addServersItem(new Server().url("http://localhost:8050"));
     }
 }
