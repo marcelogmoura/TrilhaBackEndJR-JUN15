@@ -35,6 +35,7 @@ CRUD para tarefas.
 ## Como utilizar
 É necessário realizar ao menos um registro de usuário para ter acesso aos endpoints.
 
+```bash
 POST: 
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/usuario-controller/criarUsuario
 
@@ -43,9 +44,11 @@ https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/u
   "email": "string",
   "senha": "string"
 }
+```
 
 Fazer o login utilizando as mesmas informações cadastradas e pegar o token jwt que será gerado como resposta para acessar os endpoints das tarefas.
 
+```bash
 POST:
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/usuario-controller/autenticarUsuario
 
@@ -53,9 +56,11 @@ https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/u
   "emailAcesso": "string",
   "senhaAcesso": "string"
 }
+```
 
 A tarefa poderá ser gravada após validação do token copiado da resposta na criação do usuário (comentário anterior)
 
+```bash
 POST:
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/criarTarefa
 
@@ -65,9 +70,11 @@ https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/t
   "hora": "dd-mm",
   "prioridade": integer
 }
+```
 
 Para editar uma tarefa, é só preencher com o id da mesma e preencher com o(s) campo(s) que deseja mudar, o id não é alterado na edição.
 
+```bash
 PUT:
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/alterarTarefa
 {
@@ -77,24 +84,31 @@ https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/t
   "hora": "dd-mm",
   "prioridade": integer
 }
-
+```
 Para buscar 1 tarefa pelo id
+```bash
 GET:
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/obterTarefa
+```
 
 Para buscar todas as taferas de um usuário autenticado, por período de datas.
+```bash
 GET:
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/consultarTarefas
+```
 
 Para apagar uma tarefa basta enviar o id da mesma.
+
+```bash
 DELETE:
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/excluirTarefa
-
+```
 
 ## Banco de Dados:
 - Foi utlizado o SQLite como banco de dados para armazenar informações de usuários e tarefas.
 
-
+## Autor
+- [@mgmoura](https://www.instagram.com/mgmoura/)
   
 🌐 **Contato:**
 - Email: mgmoura@gmail.com
