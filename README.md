@@ -29,11 +29,11 @@ https://trilhabackendjr-jun15-production.up.railway.app
 - Proteção de Rotas: Garantir que apenas usuários autenticados possam acessar os endpoints de tarefas.
 
 ## Funcionalidades
-Cadastro e autenticação para usuários.
-CRUD para tarefas.
+- Cadastro e autenticação para usuários.
+- CRUD para tarefas.
 
 ## Como utilizar
-É necessário realizar ao menos um registro de usuário para ter acesso aos endpoints.
+- É necessário realizar ao menos um registro de usuário para ter acesso aos endpoints.
 
 ```bash
 POST: 
@@ -46,7 +46,7 @@ https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/u
 }
 ```
 
-Fazer o login utilizando as mesmas informações cadastradas e pegar o token jwt que será gerado como resposta para acessar os endpoints das tarefas.
+- Fazer o login utilizando as mesmas informações cadastradas e pegar o token jwt que será gerado como resposta para acessar os endpoints das tarefas.
 
 ```bash
 POST:
@@ -58,7 +58,7 @@ https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/u
 }
 ```
 
-A tarefa poderá ser gravada após validação do token copiado da resposta na criação do usuário (comentário anterior)
+- A tarefa poderá ser gravada após validação do token copiado da resposta na criação do usuário (comentário anterior)
 
 ```bash
 POST:
@@ -72,7 +72,7 @@ https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/t
 }
 ```
 
-Para editar uma tarefa, é só preencher com o id da mesma e preencher com o(s) campo(s) que deseja mudar, o id não é alterado na edição.
+- Para editar uma tarefa, é só preencher com o id da mesma e preencher com o(s) campo(s) que deseja mudar, o id não é alterado na edição.
 
 ```bash
 PUT:
@@ -82,22 +82,22 @@ https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/t
   "nome": "string",
   "data": "yyyy-MM-dd",
   "hora": "dd-mm",
-  "prioridade": "integer"
+  "prioridade": integer
 }
 ```
-Para buscar 1 tarefa pelo id
+- Para buscar 1 tarefa pelo id
 ```bash
 GET:
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/obterTarefa
 ```
 
-Para buscar todas as taferas de um usuário autenticado, por período de datas.
+- Para buscar todas as taferas de um usuário autenticado, por período de datas.
 ```bash
 GET:
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/consultarTarefas
 ```
 
-Para apagar uma tarefa basta enviar o id da mesma.
+- Para apagar uma tarefa basta enviar o id da mesma.
 
 ```bash
 DELETE:
