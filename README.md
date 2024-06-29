@@ -10,14 +10,14 @@ Este projeto tem como objetivo desenvolver uma API RESTful para gerenciamento de
 - Documentar todo o processo e apresentar as conclusões.
 
 ## Resumo das tecnologias utilizadas:
-• Java 17
-• Spring Boot
-• Spring Data e SQLite
-• Spring Security
-• Swagger
-• JWT
-• Bean Validations
-• ModelMapper
+- Java 17
+- Spring Boot
+- Spring Data e SQLite
+- Spring Security
+- Swagger
+- JWT
+- Bean Validations
+- ModelMapper
 
 ## Deploy
 
