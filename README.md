@@ -82,7 +82,7 @@ https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/t
   "nome": "string",
   "data": "yyyy-MM-dd",
   "hora": "dd-mm",
-  "prioridade": integer
+  "prioridade": "integer"
 }
 ```
 Para buscar 1 tarefa pelo id
