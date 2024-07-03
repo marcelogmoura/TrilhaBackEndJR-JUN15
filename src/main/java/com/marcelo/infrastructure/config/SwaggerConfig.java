@@ -23,7 +23,7 @@ public class SwaggerConfig {
 						.type(SecurityScheme.Type.HTTP)
 						.scheme("bearer")
 						.bearerFormat("JWT")))
-						.addServersItem(new Server().url("https://trilhabackendjr-jun15-production.up.railway.app"))
+				  	    .addServersItem(new Server().url("https://trilhabackendjr-jun15-production.up.railway.app"))
 				        .info(new Info()
 						.title("API Tarefas")
 						.description("API Spring Boot - Código Certo.")

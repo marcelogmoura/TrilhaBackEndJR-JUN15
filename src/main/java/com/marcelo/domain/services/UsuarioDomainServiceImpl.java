@@ -83,7 +83,7 @@ public class UsuarioDomainServiceImpl implements UsuarioDomainService{
 	public List<UsuarioGetDto> listarUsuarios() {
 		
 		List<UsuarioGetDto> lista = new ArrayList<UsuarioGetDto>();
-		
+				
 		for(Usuario usuario : usuarioRepository.findAll()) {
 			
 			UsuarioGetDto dto = new UsuarioGetDto();
@@ -91,14 +91,13 @@ public class UsuarioDomainServiceImpl implements UsuarioDomainService{
 			dto.setIdUsuario(usuario.getIdUsuario());
 			dto.setNome(usuario.getNome());
 			dto.setEmail(usuario.getEmail());
-			
+	
 			lista.add(dto);
-			
+				
 		}
 		
 		return lista;
 	}
-
 
 
 
