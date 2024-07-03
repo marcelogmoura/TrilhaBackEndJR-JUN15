@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class CriarUsuarioRequestDto {
 	
-	@Size(min = 3, max = 100 , message = "Nome deve ter 3 a 100 caracteres")
+	@Size(min = 3, max = 100 , message = "NOME deve ter 3 a 100 caracteres")
 	@NotEmpty(message = "NOME não pode ser vazio.")
 	private String nome;
 	
@@ -18,7 +18,7 @@ public class CriarUsuarioRequestDto {
 	private String email;
 	
 	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$",
-			message = "A senha deve conter letras maiúsculas, minúsculas, números, símbolos e pelo menos 8 caracteres.")
+			message = "A SENHA deve conter letras maiúsculas, minúsculas, números, símbolos e pelo menos 8 caracteres.")
 	@NotEmpty(message = "SENHA não pode ser vazio.")
 	private String senha;
 
