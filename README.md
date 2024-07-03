@@ -1,105 +1,115 @@
-![Código Certo Coders](https://utfs.io/f/3b2340e8-5523-4aca-a549-0688fd07450e-j4edu.jfif)
+[Código Certo Coders](https://utfs.io/f/3b2340e8-5523-4aca-a549-0688fd07450e-j4edu.jfif)
 
 # 📚 Trilha Inicial BackEnd Jr
 Este projeto tem como objetivo desenvolver uma API RESTful para gerenciamento de tarefas, proporcionando funcionalidades de CRUD (Create, Read, Update, Delete) de tarefas, autenticação de usuários e armazenamento dos dados em um banco de dados.
 
-## Objetivos:
-- Criar uma API que permita CRUD (Create, Read, Update, Delete) de tarefas.
-- Implementar autenticação de usuários.
-- Utilizar um banco de dados SQLite para armazenar as tarefas.
-- Documentar todo o processo e apresentar as conclusões.
+## Tecnlogias utilizadas
+- Java 17
+- Spring Boot
+- Maven
+- Spring Data
+- Spring Security
+- SQLite (exigência da trilha)
+- JWT
 
-## Requisitos Funcionais:
-- Criar Tarefa: Endpoint para criar uma nova tarefa.
-- Listar Tarefas: Endpoint para listar todas as tarefas.
-- Atualizar Tarefa: Endpoint para atualizar uma tarefa existente.
-- Deletar Tarefa: Endpoint para deletar uma tarefa existente.
 
-## Autenticação de Usuários:
-- Registro de Usuário: Endpoint para registrar um novo usuário.
-- Login de Usuário: Endpoint para autenticar um usuário e gerar um token JWT.
-- Proteção de Rotas: Garantir que apenas usuários autenticados possam acessar os endpoints de tarefas.
 
-## Banco de Dados:
-- Utilizar SQLite como banco de dados para armazenar informações de usuários e tarefas.
+## Deploy
 
-   #### Estrutura do Projeto:
-   ```plaintext
-   project-root/
-   │
-   ├── src/
-   │   ├── controllers/
-   │   ├── models/
-   │   ├── routes/
-   │   ├── middlewares/
-   │   ├── database/
-   │   └── app.js
-   │
-   ├── .env
-   ├── .gitignore
-   ├── README.md
-   └── package.json
-   ```
-## Entregáveis:
-   1. **Código Fonte:**
-      - Código fonte do projeto, organizado conforme a estrutura acima.
-   2. **Repositório GitHub:**
-      - Repositório público contendo o código fonte e documentação.
-   3. **Documentação:**
-      - README.md com instruções sobre como configurar e executar o projeto, além de detalhes dos endpoints da API.
+```bash
+https://trilhabackendjr-jun15-production.up.railway.app/
+```
 
-### Detalhes Técnicos: 🔧
-- **Boas Práticas:** Utilizar boas práticas de código limpo, legível e bem documentado.
-- **Git:** Utilizar Git para controle de versão e submeter o projeto através de um repositório público no GitHub.
+## Documentação
+```bash
+https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html
+```
 
-### Dicas para Abordar o Projeto 🌟
-- **Crie um Fork desse Repositório.**
-- **Criar do Zero:** É fundamental que o projeto seja desenvolvido completamente do zero, demonstrando suas habilidades e criatividade desde o início.
-- **Utilize bibliotecas** como Express para criação da API e jsonwebtoken para autenticação.
-- **Documente cada etapa do processo para facilitar a compreensão.**
+## Funcionalidades
 
-### Critérios de Avaliação: 📝
-- **Funcionalidade:** A aplicação atende aos requisitos funcionais e funciona corretamente?
-- **Qualidade do Código:** O código é limpo, bem estruturado e adequadamente documentado?
-- **Segurança:** A autenticação foi implementada corretamente e as rotas estão protegidas?
-- **Uso do Git:** O controle de versão é usado de forma eficaz com mensagens de commit significativas?
-- **Documentação:** A documentação é clara e detalha o processo de desenvolvimento e uso da API?
+- CRUD para tarefas
+- Criação, autenticação e listagem de usuários
 
-### Não Queremos 🚫
-- Descobrir que o candidato não foi quem realizou o teste.
-- Ver commits grandes sem muita explicação nas mensagens no repositório.
-- Entregas padrão ou cópias de outros projetos. Buscamos originalidade e autenticidade em cada contribuição.
+## Como utilizar
+- Necessário realizar um registro de usuário para ter acesso aos endpoints.
+```bash
+POST: https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/usuario-controller/criarUsuario
 
-### Prazo ⏳
-Os candidatos devem completar a trilha em no máximo em 2 semanas, começando a contar a partir de 15/06.
+{
+  "nome": "string",
+  "email": "string",
+  "senha": "string"
+}
+```
 
-A conclusão da trilha inicial é um requisito obrigatório para avançar para a trilha 
-final. Caso a trilha inicial não seja concluída dentro do prazo estabelecido, o 
-candidato estará impossibilitado de prosseguir para trilha final.
+- Efetuar o login utilizando as mesmas informações do registro, pegar o token que será gerado como resposta para acessar os endpoints de tarefas.
+   
+```bash
+POST: https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/usuario-controller/autenticarUsuario
 
-**Data máxima para entrega: 29/06**
+{
+  "emailAcesso": "string",
+  "senhaAcesso": "string"
+}
+```
 
-### Instruções de Entrega: 📬
-Após finalizar o projeto, publique-o em uma URL pública (por exemplo, Vercel, Netlify, GitHub Pages, etc.) e hospede o seu servidor na nuvem. Use serviços que ofereçam uso gratiuto por um período, como a AWS e preencha o [Formulário](https://forms.gle/gZViPMTSDV5nidSu6):  
+- A tarefa tem o campo de prioridade que pode ser preenchido com número inteiro. Data deve seguir o formato yyyy-MM-dd e a hora HH-mm.
 
----
+```bash
+POST: https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/criarTarefa
 
-### Desafio da Inovação 🚀
-Achou esse projeto inicial simples? Eleve ainda mais! Estamos em busca de mentes inovadoras que não apenas criem, mas que também desafiem os padrões. Como você pode transformar essa estrutura inicial em algo verdadeiramente extraordinário? Demonstre o poder da sua criatividade e o impacto das suas ideias inovadoras!
+{
+  "nome": "string",
+  "data": "yyyy-MM-dd",
+  "hora": "HH-mm",
+  "prioridade": Integer
+}
+```
 
----
+- Para editar uma tarefa, é só preencher com o id da tarefa depois preencher com os campos de acordo com a necessidade.
 
-🔗 **Mantenha-se Conectado:**
-- [Discord](https://discord.gg/wzA9FGZHNv)
-- [Website](http://www.codigocertocoders.com.br/)
-- [LinkedIn](https://www.linkedin.com/company/codigocerto/)
-  
-🌐 **Contato:**
-- Email: codigocertocoders@gmail.com
+```bash
+PUT: https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/obterTarefa
 
----
+{
+  "idTarefa": "UUID",
+  "nome": "string",
+  "data": "yyyy-MM-dd",
+  "hora": "HH-mm",
+  "prioridade": Integer
+}
+```
 
-### Precisa de Ajuda?
-Está com alguma dificuldade, encontrou algum problema no desafio ou tem alguma sugestão pra gente? Crie uma issue e descreva o que achar necessário.
+- Para listar uma tarefa pelo id.
 
-**Construindo o amanhã, hoje.**
+```bash
+GET: https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/obterTarefa
+
+{
+  "idTarefa": "UUID",
+  "nome": "string",
+  "data": "yyyy-MM-dd",
+  "hora": "HH-mm",
+  "prioridade": Integer
+}
+```
+
+- Para listar todas as tarefas de um usuário, reconhecido pelo token, por um período de datas.
+
+```bash
+GET: https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/consultarTarefas
+
+``` 
+
+- Para deletar uma tarefa é só enviar um o id como parâmetro
+```bash
+DELETE: https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/tarefa-controller/excluirTarefa
+
+
+```
+
+## Autor 
+- [@mgmoura](https://www.instagram.com/mgmoura/)
+
+
+**"The world is full of kings and queens who blind your eyes and steal your dreams."**
