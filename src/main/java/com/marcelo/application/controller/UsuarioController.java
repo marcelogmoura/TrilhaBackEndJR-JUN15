@@ -1,7 +1,6 @@
 package com.marcelo.application.controller;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,6 @@ import com.marcelo.domain.dtos.UsuarioGetDto;
 import com.marcelo.domain.interfaces.UsuarioDomainService;
 import com.marcelo.infrastructure.components.TokenComponent;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @RestController
@@ -28,9 +26,6 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioDomainService usuarioDomainService;
-	
-	@Autowired
-	private TokenComponent tokenComponent;
 	
 	@PostMapping("criar")
 	public ResponseEntity<CriarUsuarioResponseDto> criarUsuario (@RequestBody @Valid CriarUsuarioRequestDto dto) {
@@ -45,15 +40,11 @@ public class UsuarioController {
 	}
 	
 	@GetMapping
-	public List<UsuarioGetDto> listarUsuarios(HttpServletRequest request) {
+	public List<UsuarioGetDto> listarUsuarios() {
 		return usuarioDomainService.listarUsuarios();
 	}
 	
-	
-	private UUID getIdUsuario(HttpServletRequest request) {
-		String token = request.getHeader("Authorization").replace("Bearer", "").trim();
-		return tokenComponent.getIdFromToken(token);
-	}
+
 	
 
 }
