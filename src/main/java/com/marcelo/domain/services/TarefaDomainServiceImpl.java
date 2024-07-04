@@ -17,6 +17,7 @@ import com.marcelo.domain.dtos.EditarTarefaRequestDto;
 import com.marcelo.domain.entities.Tarefa;
 import com.marcelo.domain.entities.Usuario;
 import com.marcelo.domain.exceptions.EmailJaCadastradoException;
+import com.marcelo.domain.exceptions.TarefaNaoLocalizadaException;
 import com.marcelo.domain.interfaces.TarefaDomainService;
 import com.marcelo.infrastructure.repositories.TarefaRepository;
 import com.marcelo.infrastructure.repositories.UsuarioRepository;
@@ -80,7 +81,7 @@ public class TarefaDomainServiceImpl implements TarefaDomainService{
 		Tarefa tarefa = tarefaRepository.findByIds(idTarefa, idUsuario);
 		
 		if(tarefa == null) {
-			throw new  EmailJaCadastradoException(); // testar tarefa null
+			throw new TarefaNaoLocalizadaException();
 		}
 		
 		return modelMapper.map(tarefa, ConsultarTarefaResponseDto.class);	

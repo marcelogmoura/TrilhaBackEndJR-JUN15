@@ -13,27 +13,36 @@ Este projeto tem como objetivo desenvolver uma API RESTful para gerenciamento de
 - JWT
 
 
-
 ## Deploy
+- Para visualizar a documentação da API, clique no link:
 
 ```bash
 https://trilhabackendjr-jun15-production.up.railway.app/
 ```
 
 ## Documentação
+- Para visualizar a documentação da API, clique no link:
 ```bash
 https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html
 ```
 
 ## Funcionalidades
 
-- CRUD para tarefas
-- Criação, autenticação e listagem de usuários
+- CRUD para tarefas:
+Crie, visualize, atualize e exclua tarefas com facilidade.
+- Criação, autenticação e listagem de usuários:
+Gerencie seus usuários com segurança e controle de acesso.
+- Autenticação JWT:
+Utilize tokens JWT para garantir a segurança das suas requisições.
+- Controle de acesso:
+Acesse as funcionalidades da API de acordo com suas permissões.
+- Armazenamento de dados em SQLite:
+Seus dados são armazenados de forma segura e persistente.
 
 ## Como utilizar
-- Necessário realizar um registro de usuário para ter acesso aos endpoints.
+- Para ter acesso aos endpoints da API, é necessário realizar um registro de usuário. Utilize a seguinte requisição POST:
 ```bash
-POST: https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/usuario-controller/criarUsuario
+https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html#/usuario-controller/criarUsuario
 
 {
   "nome": "string",
@@ -41,6 +50,7 @@ POST: https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.h
   "senha": "string"
 }
 ```
+
 
 - Efetuar o login utilizando as mesmas informações do registro, pegar o token que será gerado como resposta para acessar os endpoints de tarefas.
    
