@@ -17,6 +17,7 @@ import com.marcelo.domain.dtos.CriarTarefaRequestDto;
 import com.marcelo.domain.dtos.EditarTarefaRequestDto;
 import com.marcelo.domain.entities.Tarefa;
 import com.marcelo.domain.entities.Usuario;
+import com.marcelo.domain.exceptions.SemResultadoException;
 import com.marcelo.domain.exceptions.TarefaNaoLocalizadaException;
 import com.marcelo.domain.interfaces.TarefaDomainService;
 import com.marcelo.infrastructure.repositories.TarefaRepository;
@@ -105,6 +106,10 @@ public class TarefaDomainServiceImpl implements TarefaDomainService{
 		LocalDate localDateMax = dataMax.atZone(ZoneId.systemDefault()).toLocalDate();
 
 		List<Tarefa> tarefas = tarefaRepository.findByDatas(localDateMin, localDateMax, idUsuario);
+		
+	    if (tarefas.isEmpty()) {
+	        throw new SemResultadoException();
+	    }
 		
 		return tarefas
 				.stream()
