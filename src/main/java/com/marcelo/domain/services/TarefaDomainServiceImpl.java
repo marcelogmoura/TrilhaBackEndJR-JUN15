@@ -54,6 +54,11 @@ public class TarefaDomainServiceImpl implements TarefaDomainService{
 		
 		Usuario usuario = usuarioRepository.findById(idUsuario).get();
 		
+	    Optional<Tarefa> tarefaOptional = tarefaRepository.findById(dto.getIdTarefa());
+	    if (!tarefaOptional.isPresent()) {
+	        throw new TarefaNaoLocalizadaException();
+	    }
+		
 		Tarefa tarefa = modelMapper.map(dto, Tarefa.class);
 		tarefa.setUsuario(usuario);
 		
