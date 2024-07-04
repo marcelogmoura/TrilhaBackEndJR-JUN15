@@ -17,6 +17,7 @@ import com.marcelo.domain.dtos.UsuarioGetDto;
 import com.marcelo.domain.entities.Usuario;
 import com.marcelo.domain.exceptions.AcessoNegadoException;
 import com.marcelo.domain.exceptions.EmailJaCadastradoException;
+import com.marcelo.domain.exceptions.SemResultadoException;
 import com.marcelo.domain.interfaces.UsuarioDomainService;
 import com.marcelo.infrastructure.components.CryptoSHA256Component;
 import com.marcelo.infrastructure.components.TokenComponent;
@@ -95,6 +96,10 @@ public class UsuarioDomainServiceImpl implements UsuarioDomainService{
 			lista.add(dto);
 				
 		}
+		
+	    if (lista.isEmpty()) {
+	        throw new SemResultadoException();
+	    }
 		
 		return lista;
 	}
