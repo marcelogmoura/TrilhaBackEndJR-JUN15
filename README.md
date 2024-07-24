@@ -17,7 +17,7 @@ Este projeto tem como objetivo desenvolver uma API RESTful para gerenciamento de
 - Para visualizar a documentação da API, clique no link:
 
 ```bash
-https://trilhabackendjr-jun15-production.up.railway.app/
+https://trilhabackendjr-jun15-production.up.railway.app/swagger-ui/index.html
 ```
 
 ## Documentação
